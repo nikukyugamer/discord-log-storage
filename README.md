@@ -1,2 +1,7 @@
-# eiyuden-discord-models
-Model about Eiyuden Discord
+# Eiyuden Discord Models
+- Models about Eiyuden Discord
+  - User
+  - Server
+  - Channel
+  - Message
+  - ...
