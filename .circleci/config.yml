@@ -22,6 +22,10 @@ jobs:
       - checkout
       # TODO: Setup Database, bundle install, bundle exec rubocop, bundle exec rspec
       - run:
+          name: Prepare the artifact directory
+          command: |
+            mkdir /tmp/bluemoon
+      - run:
           name: Hello, World!
           command: |
             echo 'Hello, World!'
