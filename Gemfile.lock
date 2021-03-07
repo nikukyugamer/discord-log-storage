@@ -101,6 +101,9 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
+    paper_trail (11.1.0)
+      activerecord (>= 5.2)
+      request_store (~> 1.1)
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -143,6 +146,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
+    request_store (1.5.0)
+      rack (>= 1.4)
     rexml (3.2.4)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
@@ -206,6 +211,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   listen
+  paper_trail
   pg
   puma
   rails
