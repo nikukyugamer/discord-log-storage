@@ -7,7 +7,6 @@ gem 'bootsnap', require: false
 gem 'pg'
 gem 'puma'
 gem 'rails'
-gem 'sqlite3'
 
 group :development, :test do
   gem 'byebug'
