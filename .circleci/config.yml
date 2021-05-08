@@ -14,7 +14,7 @@ jobs:
   build:
     executor:
       name: ruby_executor
-      version_tag: 3.0.0
+      version_tag: 3.0.1
     environment:
       TZ: "Asia/Tokyo"
     working_directory: ~/working_directory
