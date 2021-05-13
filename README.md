@@ -4,4 +4,3 @@
 ## Tech Stack
 - ActiveRecord (Ruby on Rails)
 - [Tyrrrz/DiscordChatExporter: Exports Discord chat logs to a file](https://github.com/Tyrrrz/DiscordChatExporter)
-- [true-runes/eiyuden-discord-logger: Eiyuden Official Discord Logger powered by DiscordChatExporter](https://github.com/true-runes/eiyuden-discord-logger)
