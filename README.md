@@ -3,4 +3,4 @@
 
 ## Tech Stack
 - ActiveRecord (Ruby on Rails)
-
+- [Tyrrrz/DiscordChatExporter: Exports Discord chat logs to a file](https://github.com/Tyrrrz/DiscordChatExporter)
