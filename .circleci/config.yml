@@ -21,6 +21,11 @@ jobs:
     steps:
       - checkout
       # TODO: Setup Database, bundle install, bundle exec rubocop, bundle exec rspec
+      - restore_cache:
+          name: Restore RubyGems Cache
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
       - run:
           name: Prepare the artifact directory
           command: |
@@ -38,11 +43,21 @@ jobs:
           command: |
             which ruby > /tmp/bluemoon/which_ruby.txt
       - run:
-          name: $ bundle install
+          name: Install the latest Bundler
           command: |
-            bundle install
+            gem install bundler
       - run:
-          name: RuboCop
+          name: Bundle install
+          command: |
+            bundle config set path 'vendor/bundle'
+            bundle install --jobs=4 --retry=3
+      - save_cache:
+          name: Save RubyGems Cache
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Execute RuboCop
           command: |
             bundle exec rubocop
       - store_artifacts:
