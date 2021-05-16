@@ -37,6 +37,14 @@ jobs:
           name: Check the installed Ruby path
           command: |
             which ruby > /tmp/bluemoon/which_ruby.txt
+      - run:
+          name: $ bundle install
+          command: |
+            bundle install
+      - run:
+          name: RuboCop
+          command: |
+            bundle exec rubocop
       - store_artifacts:
           path: /tmp/my_artifact
           destination: eiyuden
