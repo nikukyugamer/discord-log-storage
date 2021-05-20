@@ -1,5 +1,7 @@
-# Eiyuden Discord Model
-百英雄伝 の [Discord](discord.gg/eiyuden) のログのモデルの作成や操作等をするアプリケーションです。
+# Discord Log Storage
+- [Discord](https://discord.com/) のログを収集するアプリケーションです
+- `$ bin/rails runner` 経由でログを取得し、データベースに格納します
+- ログ収集の外部プログラムとして [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) を用います
 
 ## Tech Stack
 - ActiveRecord (Ruby on Rails)
