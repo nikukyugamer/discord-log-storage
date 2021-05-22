@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_035316) do
+ActiveRecord::Schema.define(version: 2021_05_22_123730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attachments", force: :cascade do |t|
-    t.integer "id_number"
+    t.integer "id_number", null: false
     t.string "url"
     t.string "filename"
     t.integer "file_size_bytes"
@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   end
 
   create_table "channels", force: :cascade do |t|
-    t.integer "id_number"
-    t.string "type_name"
-    t.string "category"
-    t.string "name"
+    t.integer "id_number", null: false
+    t.string "type_name", null: false
+    t.string "category", null: false
+    t.string "name", null: false
     t.string "topic"
     t.bigint "guild_id"
     t.datetime "created_at", precision: 6, null: false
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   end
 
   create_table "guilds", force: :cascade do |t|
-    t.integer "id_number"
-    t.string "name"
+    t.integer "id_number", null: false
+    t.string "name", null: false
     t.string "icon_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -63,13 +63,13 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "id_number"
-    t.string "type_name"
+    t.integer "id_number", null: false
+    t.string "type_name", null: false
     t.datetime "timestamp"
     t.datetime "timestamp_edited"
     t.datetime "call_end_timestamp"
     t.boolean "is_pinned"
-    t.string "content"
+    t.string "content", null: false
     t.bigint "user_id"
     t.bigint "channel_id"
     t.datetime "created_at", precision: 6, null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   end
 
   create_table "reactions", force: :cascade do |t|
-    t.integer "count"
+    t.integer "count", null: false
     t.jsonb "emoji"
     t.bigint "message_id"
     t.datetime "created_at", precision: 6, null: false
@@ -89,9 +89,9 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "id_number"
-    t.string "name"
-    t.boolean "is_bot"
+    t.integer "id_number", null: false
+    t.string "name", null: false
+    t.boolean "is_bot", null: false
     t.string "discriminator"
     t.string "nickname"
     t.string "avatar_url"
