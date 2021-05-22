@@ -1,0 +1,2 @@
+class Embed < ApplicationRecord
+end
