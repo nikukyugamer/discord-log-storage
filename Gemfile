@@ -11,6 +11,7 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
