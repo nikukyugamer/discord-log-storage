@@ -62,7 +62,7 @@ jobs:
             bundle exec rubocop
       - store_artifacts:
           path: /tmp/my_artifact
-          destination: eiyuden
+          destination: discord_log_storage
       - store_artifacts:
           path: /tmp/bluemoon
 
