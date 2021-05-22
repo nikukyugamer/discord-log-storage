@@ -10,10 +10,95 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_032147) do
+ActiveRecord::Schema.define(version: 2021_05_22_035316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.integer "id_number"
+    t.string "url"
+    t.string "filename"
+    t.integer "file_size_bytes"
+    t.bigint "message_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["id_number"], name: "index_attachments_on_id_number", unique: true
+    t.index ["message_id"], name: "index_attachments_on_message_id"
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.integer "id_number"
+    t.string "type_name"
+    t.string "category"
+    t.string "name"
+    t.string "topic"
+    t.bigint "guild_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["guild_id"], name: "index_channels_on_guild_id"
+    t.index ["id_number"], name: "index_channels_on_id_number", unique: true
+  end
+
+  create_table "embeds", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.datetime "timestamp"
+    t.string "description"
+    t.jsonb "thumbnail"
+    t.string "fields"
+    t.bigint "message_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["message_id"], name: "index_embeds_on_message_id"
+  end
+
+  create_table "guilds", force: :cascade do |t|
+    t.integer "id_number"
+    t.string "name"
+    t.string "icon_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["id_number"], name: "index_guilds_on_id_number", unique: true
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "id_number"
+    t.string "type_name"
+    t.datetime "timestamp"
+    t.datetime "timestamp_edited"
+    t.datetime "call_end_timestamp"
+    t.boolean "is_pinned"
+    t.string "content"
+    t.bigint "user_id"
+    t.bigint "channel_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["channel_id"], name: "index_messages_on_channel_id"
+    t.index ["id_number"], name: "index_messages_on_id_number", unique: true
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "reactions", force: :cascade do |t|
+    t.integer "count"
+    t.jsonb "emoji"
+    t.bigint "message_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["message_id"], name: "index_reactions_on_message_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer "id_number"
+    t.string "name"
+    t.boolean "is_bot"
+    t.string "discriminator"
+    t.string "nickname"
+    t.string "avatar_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["id_number"], name: "index_users_on_id_number", unique: true
+  end
 
   create_table "versions", force: :cascade do |t|
     t.string "item_type"
