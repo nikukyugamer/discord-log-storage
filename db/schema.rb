@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
   enable_extension "plpgsql"
 
   create_table "attachments", force: :cascade do |t|
-    t.integer "id_number", null: false
+    t.bigint "id_number", null: false
     t.string "url"
     t.string "file_name"
     t.integer "file_size_bytes"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
   end
 
   create_table "channels", force: :cascade do |t|
-    t.integer "id_number", null: false
+    t.bigint "id_number", null: false
     t.string "type_name", null: false
     t.string "category", null: false
     t.string "name", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
   end
 
   create_table "guilds", force: :cascade do |t|
-    t.integer "id_number", null: false
+    t.bigint "id_number", null: false
     t.string "name", null: false
     t.string "icon_url"
     t.datetime "created_at", precision: 6, null: false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "id_number", null: false
+    t.bigint "id_number", null: false
     t.string "type_name", null: false
     t.datetime "timestamp"
     t.datetime "timestamp_edited"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "id_number", null: false
+    t.bigint "id_number", null: false
     t.string "name", null: false
     t.boolean "is_bot", null: false
     t.string "discriminator"

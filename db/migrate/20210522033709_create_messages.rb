@@ -1,7 +1,7 @@
 class CreateMessages < ActiveRecord::Migration[6.1]
   def change
     create_table :messages do |t|
-      t.integer :id_number
+      t.bigint :id_number
       t.string :type_name
       t.datetime :timestamp
       t.datetime :timestamp_edited

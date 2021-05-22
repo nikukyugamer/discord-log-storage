@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
-      t.integer :id_number
+      t.bigint :id_number
       t.string :name
       t.boolean :is_bot
       t.string :discriminator # Mention は Integer で渡ってくる
