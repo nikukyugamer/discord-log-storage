@@ -4,7 +4,7 @@ class CreateAttachments < ActiveRecord::Migration[6.1]
     create_table :attachments do |t|
       t.integer :id_number
       t.string :url
-      t.string :filename
+      t.string :file_name
       t.integer :file_size_bytes
 
       t.references :message

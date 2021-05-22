@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
   create_table "attachments", force: :cascade do |t|
     t.integer "id_number", null: false
     t.string "url"
-    t.string "filename"
+    t.string "file_name"
     t.integer "file_size_bytes"
     t.bigint "message_id"
     t.datetime "created_at", precision: 6, null: false
