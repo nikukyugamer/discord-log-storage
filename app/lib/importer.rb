@@ -4,21 +4,21 @@ class Importer
       guild_list_response.each_line do |guild_data|
         split_guild_data = guild_data.match(/(.*?)( \| )(.*)/)
 
-        channel_id_number = split_guild_data[1]
-        channel_name = split_guild_data[3].chomp
-        guild = Guild.find_by(id_number: channel_id_number)
+        guild_id_number = split_guild_data[1]
+        guild_name = split_guild_data[3].chomp
+        guild = Guild.find_by(id_number: guild_id_number)
 
         if !upsert || (upsert && guild.blank?)
           guild = Guild.new(
-            id_number: channel_id_number,
-            name: channel_name
+            id_number: guild_id_number,
+            name: guild_name
           )
 
           guild.save!
         else
           guild.update!(
-            id_number: channel_id_number,
-            name: channel_name
+            id_number: guild_id_number,
+            name: guild_name
           )
         end
       end
@@ -27,7 +27,7 @@ class Importer
       Rails.logger.fatal e
     end
 
-    def self.convert_response_key_to_columen_name(response_key)
+    def convert_response_key_to_columen_name(response_key)
       {
         'id' => 'id_number',
         'isBot' => 'is_bot',
