@@ -47,6 +47,9 @@ module DiscordChatExporter
     rescue StandardError => _e
       Rails.logger.warn 'エラーです: DiscordChatExporter::Channel#export'
       Rails.logger.warn stderr.lines[0]
+
+      Bugsnag.notify('エラーです: DiscordChatExporter::Channel#export')
+      Bugsnag.notify(stderr.lines[0])
     end
 
     def exportdm

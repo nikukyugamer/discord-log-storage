@@ -1,13 +1,6 @@
 class Importer
   class  << self
-    def debug
-      # response_json = JSON.parse(File.read(Rails.root.join('log/Json/warota.json')))
-      response_json = JSON.parse(File.read(Rails.root.join('spec/responses/export.json')))
-
-      exported_data(response_json, execute_update: true)
-    end
-
-    def exported_data(exported_json=nil, execute_update: false) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+    def exported_data(exported_json, execute_update: false) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
       # Guild
       guild_params = exported_json['guild']
       guild_params.transform_keys! { |key| convert_response_key_to_columen_name(key) }
@@ -142,7 +135,9 @@ class Importer
     rescue StandardError => e
       Rails.logger.fatal 'エラーです: Importer#exported_data でエラーが発生しました'
       Rails.logger.fatal e
-      # TODO: Bugsnag
+
+      Bugsnag.notify('エラーです: Importer#exported_data でエラーが発生しました')
+      Bugsnag.notify(e)
     end
 
     def guild_list(guild_list_response, execute_update: false)
@@ -162,7 +157,9 @@ class Importer
     rescue StandardError => e
       Rails.logger.fatal 'エラーです: Importer#guild_list でエラーが発生しました'
       Rails.logger.fatal e
-      # TODO: Bugsnag
+
+      Bugsnag.notify('エラーです: Importer#guild_list でエラーが発生しました')
+      Bugsnag.notify(e)
     end
 
     def channel_list(channel_list_response, execute_update: false)
@@ -182,7 +179,9 @@ class Importer
     rescue StandardError => e
       Rails.logger.fatal 'エラーです: Importer#channel_list でエラーが発生しました'
       Rails.logger.fatal e
-      # TODO: Bugsnag
+
+      Bugsnag.notify('エラーです: Importer#channel_list でエラーが発生しました')
+      Bugsnag.notify(e)
     end
 
     def convert_response_key_to_columen_name(response_key)
