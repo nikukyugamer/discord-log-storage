@@ -14,6 +14,8 @@ development:
 test:
   <<: *default
   database: discord_log_storage_test
+  username: <%= ENV['PG_USERNAME'] || 'root' %>
+  password: <%= ENV['PG_PASSWORD'] || 'postgres' %>
 
 production:
   <<: *default
