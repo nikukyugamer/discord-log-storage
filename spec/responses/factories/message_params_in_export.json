@@ -1,0 +1,20 @@
+{
+  "id": "737557359926003772",
+  "type": "GuildMemberJoin",
+  "timestamp": "2020-07-28T06:30:49.285+00:00",
+  "timestampEdited": null,
+  "callEndedTimestamp": null,
+  "isPinned": false,
+  "content": "Joined the server.",
+  "author": {
+    "id": "353191485379743744",
+    "name": "ユーザー1",
+    "discriminator": "1234",
+    "isBot": false,
+    "avatarUrl": "https://cdn.discordapp.com/avatars/353198485379743744/54a099bef93bc18fb00a28a2a7ec363a.png"
+  },
+  "attachments": [],
+  "embeds": [],
+  "reactions": [],
+  "mentions": []
+}

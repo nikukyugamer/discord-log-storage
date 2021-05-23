@@ -1,20 +1,4 @@
 {
-  "guild": {
-    "id": "736851542931130409",
-    "name": "サンプルギルド",
-    "iconUrl": "https://cdn.discordapp.com/icons/123456789/abcdef1234567890.png"
-  },
-  "channel": {
-    "id": "736951523644162090",
-    "type": "GuildTextChat",
-    "category": "Text Channels",
-    "name": "雑談部屋",
-    "topic": "何でもどうぞ"
-  },
-  "dateRange": {
-    "after": null,
-    "before": null
-  },
   "messages": [
     {
       "id": "737557359926003772",
@@ -107,20 +91,7 @@
         "avatarUrl": "https://cdn.discordapp.com/avatars/319760838699253761/29e2122258f505f35712d22370e7f6fb.png"
       },
       "attachments": [],
-      "embeds": [
-        {
-          "title": "OlivarTheLagomorph - Twitch",
-          "url": "https://www.twitch.tv/olivarthelagomorph",
-          "timestamp": null,
-          "description": "Small, innocent bunny from space that loves to share his video game adventures.",
-          "thumbnail": {
-            "url": "https://static-cdn.jtvnw.net/jtv_user_pictures/olivarthelagomorph-profile_image-5004a8b25dd9c667-300x300.png",
-            "width": 300,
-            "height": 300
-          },
-          "fields": []
-        }
-      ],
+      "embeds": [],
       "reactions": [
         {
           "emoji": {
@@ -161,6 +132,5 @@
       ],
       "mentions": []
     }
-  ],
-  "messageCount": 4
+  ]
 }

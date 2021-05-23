@@ -6,4 +6,6 @@ class Message < ApplicationRecord
   has_many :attachments
   has_many :embeds
   has_many :reactions
+
+  # TODO: バリデーション
 end
