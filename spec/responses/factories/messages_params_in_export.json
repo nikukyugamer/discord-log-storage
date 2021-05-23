@@ -76,6 +76,39 @@
       ]
     },
     {
+      "id": "843210956398002197",
+      "type": "Reply",
+      "timestamp": "2021-05-15T19:39:18.107+00:00",
+      "timestampEdited": null,
+      "callEndedTimestamp": null,
+      "isPinned": false,
+      "content": "My girlfriend does a big awww every time I show your dogs.",
+      "author": {
+        "id": "111920814680444928",
+        "name": "MetalMichael",
+        "discriminator": "3925",
+        "isBot": false,
+        "avatarUrl": "https://cdn.discordapp.com/avatars/111920814680444928/bff1a3f5b32cfc0ce3e1b91956bbafde.png"
+      },
+      "attachments": [],
+      "embeds": [],
+      "reactions": [],
+      "mentions": [
+        {
+          "id": "465949984353681410",
+          "name": "richmond",
+          "discriminator": 9720,
+          "nickname": "richmond",
+          "isBot": false
+        }
+      ],
+      "reference": {
+        "messageId": "843101934570569758",
+        "channelId": "762352695066755112",
+        "guildId": "727952189024108645"
+      }
+    },
+    {
       "id": "737557683671153063",
       "type": "Default",
       "timestamp": "2020-07-28T06:30:54.947+00:00",

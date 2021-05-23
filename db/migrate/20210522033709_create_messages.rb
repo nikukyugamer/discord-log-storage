@@ -8,6 +8,7 @@ class CreateMessages < ActiveRecord::Migration[6.1]
       t.datetime :call_ended_timestamp
       t.boolean :is_pinned # , null: false, default: false
       t.string :content # , null: false, default: '_CONTENT_IS_NOTHING_'
+      t.jsonb :reference
 
       t.references :user
       t.references :channel
