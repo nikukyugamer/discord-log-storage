@@ -9,7 +9,7 @@
     "type": "GuildTextChat",
     "category": "Text Channels",
     "name": "雑談部屋",
-    "topic": "何でもどうぞ"
+    "topic": null
   },
   "dateRange": {
     "after": null,
