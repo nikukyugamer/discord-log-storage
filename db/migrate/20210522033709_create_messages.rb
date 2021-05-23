@@ -9,7 +9,7 @@ class CreateMessages < ActiveRecord::Migration[6.1]
       t.boolean :is_pinned, null: false, default: false
       t.string :content, null: false, default: '_CONTENT_IS_NOTHING_'
 
-      t.references :user # STI: has_one :author, has_many :mentions
+      t.references :user
       t.references :channel
 
       t.timestamps
