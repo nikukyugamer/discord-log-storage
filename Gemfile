@@ -21,3 +21,7 @@ group :development do
   gem 'listen'
   gem 'spring'
 end
+
+group :test do
+  gem 'rspec_junit_formatter'
+end
