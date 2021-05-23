@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
     t.string "type_name", default: "_TYPE_NAME_IS_NOTHING_", null: false
     t.datetime "timestamp", default: "1980-01-01 12:00:00", null: false
     t.datetime "timestamp_edited", default: "1980-01-01 12:00:00", null: false
-    t.datetime "call_end_timestamp", default: "1980-01-01 12:00:00", null: false
+    t.datetime "call_ended_timestamp", default: "1980-01-01 12:00:00", null: false
     t.boolean "is_pinned", default: false, null: false
     t.string "content", default: "_CONTENT_IS_NOTHING_", null: false
     t.bigint "user_id"
