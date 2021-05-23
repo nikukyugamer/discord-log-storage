@@ -16,5 +16,10 @@
   "attachments": [],
   "embeds": [],
   "reactions": [],
-  "mentions": []
+  "mentions": [],
+  "reference": {
+    "messageId": "843101934570569758",
+    "channelId": "762352695066755112",
+    "guildId": "727952189024108645"
+  }
 }

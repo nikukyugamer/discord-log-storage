@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
     t.string "url"
     t.datetime "timestamp"
     t.string "description"
+    t.string "color"
+    t.jsonb "author"
+    t.jsonb "image"
+    t.jsonb "footer"
     t.jsonb "thumbnail"
     t.string "fields"
     t.bigint "message_id"
@@ -70,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
     t.datetime "call_ended_timestamp"
     t.boolean "is_pinned"
     t.string "content"
+    t.jsonb "reference"
     t.bigint "user_id"
     t.bigint "channel_id"
     t.datetime "created_at", precision: 6, null: false
