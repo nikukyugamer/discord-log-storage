@@ -5,8 +5,8 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :name, null: false, default: '_NAME_IS_NOTHING_'
       t.boolean :is_bot, null: false, default: false
       t.string :discriminator, null: false, default: '_DISCRIMINATOR_IS_NOTHING_' # Mention は Integer で渡ってくる
-      t.string :nickname, null: false, default: '_NICKNAME_IS_NOTHING_' # Mention のみ
-      t.string :avatar_url, null: false, default: '_AVATAR_URL_IS_NOTHING_' # Author のみ
+      t.string :nickname, null: false, default: '_NICKNAME_IS_NOTHING_'
+      t.string :avatar_url, null: false, default: '_AVATAR_URL_IS_NOTHING_'
 
       t.timestamps
     end

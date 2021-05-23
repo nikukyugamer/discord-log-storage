@@ -1,2 +1,0 @@
-class Mention < User
-end
