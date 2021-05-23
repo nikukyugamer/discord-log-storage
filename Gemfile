@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'bootsnap', require: false
+gem 'bugsnag'
 gem 'paper_trail'
 gem 'pg'
 gem 'puma'
@@ -18,6 +18,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bootsnap', require: false
   gem 'listen'
   gem 'spring'
 end
