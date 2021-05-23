@@ -27,7 +27,7 @@ class Importer
       Rails.logger.fatal e
     end
 
-    def self.convert_response_key_to_columen_name(response_key)
+    def convert_response_key_to_columen_name(response_key)
       {
         'id' => 'id_number',
         'isBot' => 'is_bot',
