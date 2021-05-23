@@ -9,12 +9,14 @@ default: &default
 
 development:
   <<: *default
-  database: eiyuden_discord_development
+  database: discord_log_storage_development
 
 test:
   <<: *default
-  database: eiyuden_discord_test
+  database: discord_log_storage_test
+  username: <%= ENV['PG_USERNAME'] || 'root' %>
+  password: <%= ENV['PG_PASSWORD'] || 'postgres' %>
 
 production:
   <<: *default
-  database: eiyuden_discord_production
+  database: discord_log_storage_production

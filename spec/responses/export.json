@@ -1,0 +1,166 @@
+{
+  "guild": {
+    "id": "736851542931130409",
+    "name": "サンプルギルド",
+    "iconUrl": "https://cdn.discordapp.com/icons/123456789/abcdef1234567890.png"
+  },
+  "channel": {
+    "id": "736951523644162090",
+    "type": "GuildTextChat",
+    "category": "Text Channels",
+    "name": "雑談部屋",
+    "topic": "何でもどうぞ"
+  },
+  "dateRange": {
+    "after": null,
+    "before": null
+  },
+  "messages": [
+    {
+      "id": "737557359926003772",
+      "type": "GuildMemberJoin",
+      "timestamp": "2020-07-28T06:30:49.285+00:00",
+      "timestampEdited": null,
+      "callEndedTimestamp": null,
+      "isPinned": false,
+      "content": "Joined the server.",
+      "author": {
+        "id": "353191485379743744",
+        "name": "ユーザー1",
+        "discriminator": "1234",
+        "isBot": false,
+        "avatarUrl": "https://cdn.discordapp.com/avatars/353198485379743744/54a099bef93bc18fb00a28a2a7ec363a.png"
+      },
+      "attachments": [],
+      "embeds": [],
+      "reactions": [],
+      "mentions": []
+    },
+    {
+      "id": "737844257627450469",
+      "type": "Default",
+      "timestamp": "2020-07-28T22:50:35.606+00:00",
+      "timestampEdited": null,
+      "callEndedTimestamp": null,
+      "isPinned": false,
+      "content": "",
+      "author": {
+        "id": "319761838699253761",
+        "name": "ユーザー2",
+        "discriminator": "1235",
+        "isBot": false,
+        "avatarUrl": "https://cdn.discordapp.com/avatars/319760838699253761/29e2122258f505f35712d22370e7f6fb.png"
+      },
+      "attachments": [
+        {
+          "id": "737807997098837093",
+          "url": "https://cdn.discordapp.com/attachments/736851523644162090/7378042270988a7093/foobar.png",
+          "fileName": "foobar.png",
+          "fileSizeBytes": 1234567
+        }
+      ],
+      "embeds": [],
+      "reactions": [],
+      "mentions": []
+    },
+    {
+      "id": "737926838299116427",
+      "type": "Default",
+      "timestamp": "2020-07-29T06:57:48.261+00:00",
+      "timestampEdited": null,
+      "callEndedTimestamp": null,
+      "isPinned": false,
+      "content": "@hogehoge Hello, World!",
+      "author": {
+        "id": "214131831699216384",
+        "name": "Part Time Protagonist",
+        "discriminator": "7318",
+        "isBot": false,
+        "avatarUrl": "https://cdn.discordapp.com/avatars/211131931699216324/1b6963d364574ffb9c4455620cb7d42e.png"
+      },
+      "attachments": [],
+      "embeds": [],
+      "reactions": [],
+      "mentions": [
+        {
+          "id": "353191485379743744",
+          "name": "ユーザー1",
+          "discriminator": 1234,
+          "nickname": "ユーザー1ニックネーム",
+          "isBot": false
+        }
+      ]
+    },
+    {
+      "id": "737557683671153063",
+      "type": "Default",
+      "timestamp": "2020-07-28T06:30:54.947+00:00",
+      "timestampEdited": null,
+      "callEndedTimestamp": null,
+      "isPinned": false,
+      "content": "OLD MAN DAN",
+      "author": {
+        "id": "319761838699253761",
+        "name": "ユーザー2",
+        "discriminator": "1235",
+        "isBot": false,
+        "avatarUrl": "https://cdn.discordapp.com/avatars/319760838699253761/29e2122258f505f35712d22370e7f6fb.png"
+      },
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "OlivarTheLagomorph - Twitch",
+          "url": "https://www.twitch.tv/olivarthelagomorph",
+          "timestamp": null,
+          "description": "Small, innocent bunny from space that loves to share his video game adventures.",
+          "thumbnail": {
+            "url": "https://static-cdn.jtvnw.net/jtv_user_pictures/olivarthelagomorph-profile_image-5004a8b25dd9c667-300x300.png",
+            "width": 300,
+            "height": 300
+          },
+          "fields": []
+        }
+      ],
+      "reactions": [
+        {
+          "emoji": {
+            "id": null,
+            "name": "\uD83C\uDF89",
+            "isAnimated": false,
+            "imageUrl": "https://twemoji.maxcdn.com/2/72x72/1f389.png"
+          },
+          "count": 1
+        },
+        {
+          "emoji": {
+            "id": null,
+            "name": "\uD83E\uDD73",
+            "isAnimated": false,
+            "imageUrl": "https://twemoji.maxcdn.com/2/72x72/1f973.png"
+          },
+          "count": 1
+        },
+        {
+          "emoji": {
+            "id": null,
+            "name": "\uD83D\uDE47‍♂️",
+            "isAnimated": false,
+            "imageUrl": "https://twemoji.maxcdn.com/2/72x72/1f647-200d-2642.png"
+          },
+          "count": 1
+        },
+        {
+          "emoji": {
+            "id": null,
+            "name": "\uD83D\uDC4F",
+            "isAnimated": false,
+            "imageUrl": "https://twemoji.maxcdn.com/2/72x72/1f44f.png"
+          },
+          "count": 1
+        }
+      ],
+      "mentions": []
+    }
+  ],
+  "messageCount": 4
+}
