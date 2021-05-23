@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
 
   create_table "channels", force: :cascade do |t|
     t.bigint "id_number", null: false
-    t.string "type_name", null: false
-    t.string "category", null: false
+    t.string "type_name"
+    t.string "category"
     t.string "name", null: false
     t.string "topic"
     t.bigint "guild_id"
