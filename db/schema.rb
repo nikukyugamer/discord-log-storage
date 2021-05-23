@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   enable_extension "plpgsql"
 
   create_table "attachments", force: :cascade do |t|
-    t.bigint "id_number", null: false
-    t.string "url", default: "_URL_IS_NOTHING_", null: false
-    t.string "file_name", default: "_FILE_NAME_IS_NOTHING_", null: false
-    t.integer "file_size_bytes", default: 0, null: false
+    t.bigint "id_number"
+    t.string "url"
+    t.string "file_name"
+    t.integer "file_size_bytes"
     t.bigint "message_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   end
 
   create_table "channels", force: :cascade do |t|
-    t.bigint "id_number", null: false
-    t.string "type_name", default: "_TYPE_NAME_IS_NOTHING_", null: false
-    t.string "category", default: "_CATEGORY_IS_NOTHING_", null: false
-    t.string "name", default: "_NAME_IS_NOTHING_", null: false
-    t.string "topic", default: "_TOPIC_IS_NOTHING_", null: false
+    t.bigint "id_number"
+    t.string "type_name"
+    t.string "category"
+    t.string "name"
+    t.string "topic"
     t.bigint "guild_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   end
 
   create_table "embeds", force: :cascade do |t|
-    t.string "title", default: "_TITLE_IS_NOTHING_", null: false
-    t.string "url", default: "_URL_IS_NOTHING_", null: false
+    t.string "title"
+    t.string "url"
     t.datetime "timestamp"
-    t.string "description", default: "_DESCRIPTION_IS_NOTHING_", null: false
+    t.string "description"
     t.jsonb "thumbnail"
-    t.string "fields", default: "_FIELDS_IS_NOTHING_", null: false
+    t.string "fields"
     t.bigint "message_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -54,22 +54,22 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   end
 
   create_table "guilds", force: :cascade do |t|
-    t.bigint "id_number", null: false
-    t.string "name", default: "_NAME_IS_NOTHING_", null: false
-    t.string "icon_url", default: "_ICON_URL_IS_NOTHING_", null: false
+    t.bigint "id_number"
+    t.string "name"
+    t.string "icon_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["id_number"], name: "index_guilds_on_id_number", unique: true
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "id_number", null: false
-    t.string "type_name", default: "_TYPE_NAME_IS_NOTHING_", null: false
+    t.bigint "id_number"
+    t.string "type_name"
     t.datetime "timestamp"
     t.datetime "timestamp_edited"
     t.datetime "call_ended_timestamp"
-    t.boolean "is_pinned", default: false, null: false
-    t.string "content", default: "_CONTENT_IS_NOTHING_", null: false
+    t.boolean "is_pinned"
+    t.string "content"
     t.bigint "user_id"
     t.bigint "channel_id"
     t.datetime "created_at", precision: 6, null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   end
 
   create_table "reactions", force: :cascade do |t|
-    t.integer "count", default: -1, null: false
+    t.integer "count"
     t.jsonb "emoji"
     t.bigint "message_id"
     t.datetime "created_at", precision: 6, null: false
@@ -89,12 +89,12 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.bigint "id_number", default: -1, null: false
-    t.string "name", default: "_NAME_IS_NOTHING_", null: false
-    t.boolean "is_bot", default: false, null: false
-    t.string "discriminator", default: "_DISCRIMINATOR_IS_NOTHING_", null: false
-    t.string "nickname", default: "_NICKNAME_IS_NOTHING_", null: false
-    t.string "avatar_url", default: "_AVATAR_URL_IS_NOTHING_", null: false
+    t.bigint "id_number"
+    t.string "name"
+    t.boolean "is_bot"
+    t.string "discriminator"
+    t.string "nickname"
+    t.string "avatar_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["id_number"], name: "index_users_on_id_number", unique: true
