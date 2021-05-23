@@ -27,6 +27,33 @@ class Importer
       Rails.logger.fatal e
     end
 
+    def channel_list(channel_list_response, upsert: false)
+      channel_list_response.each_line do |channel_data|
+        split_channel_data = channel_data.match(/(.*?)( \| )(.*)/)
+
+        channel_id_number = split_channel_data[1]
+        channel_name = split_channel_data[3].chomp
+        channel = Channel.find_by(id_number: channel_id_number)
+
+        if !upsert || (upsert && channel.blank?)
+          channel = Channel.new(
+            id_number: channel_id_number,
+            name: channel_name
+          )
+
+          channel.save!
+        else
+          channel.update!(
+            id_number: channel_id_number,
+            name: channel_name
+          )
+        end
+      end
+    rescue StandardError => e
+      Rails.logger.fatal 'Importer: #channel_list でエラーが発生しました'
+      Rails.logger.fatal e
+    end
+
     def convert_response_key_to_columen_name(response_key)
       {
         'id' => 'id_number',
