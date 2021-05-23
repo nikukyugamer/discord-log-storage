@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_123730) do
+ActiveRecord::Schema.define(version: 2021_05_22_035316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attachments", force: :cascade do |t|
     t.bigint "id_number", null: false
-    t.string "url"
-    t.string "file_name"
-    t.integer "file_size_bytes"
+    t.string "url", default: "_URL_IS_NOTHING_", null: false
+    t.string "file_name", default: "_FILE_NAME_IS_NOTHING_", null: false
+    t.integer "file_size_bytes", default: 0, null: false
     t.bigint "message_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
 
   create_table "channels", force: :cascade do |t|
     t.bigint "id_number", null: false
-    t.string "type_name"
-    t.string "category"
-    t.string "name", null: false
-    t.string "topic"
+    t.string "type_name", default: "_TYPE_NAME_IS_NOTHING_", null: false
+    t.string "category", default: "_CATEGORY_IS_NOTHING_", null: false
+    t.string "name", default: "_NAME_IS_NOTHING_", null: false
+    t.string "topic", default: "_TOPIC_IS_NOTHING_", null: false
     t.bigint "guild_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
   end
 
   create_table "embeds", force: :cascade do |t|
-    t.string "title"
-    t.string "url"
-    t.datetime "timestamp"
-    t.string "description"
+    t.string "title", default: "_TITLE_IS_NOTHING_", null: false
+    t.string "url", default: "_URL_IS_NOTHING_", null: false
+    t.datetime "timestamp", default: "1980-01-01 12:00:00", null: false
+    t.string "description", default: "_DESCRIPTION_IS_NOTHING_", null: false
     t.jsonb "thumbnail"
-    t.string "fields"
+    t.string "fields", default: "_FIELDS_IS_NOTHING_", null: false
     t.bigint "message_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
 
   create_table "guilds", force: :cascade do |t|
     t.bigint "id_number", null: false
-    t.string "name", null: false
-    t.string "icon_url"
+    t.string "name", default: "_NAME_IS_NOTHING_", null: false
+    t.string "icon_url", default: "_ICON_URL_IS_NOTHING_", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["id_number"], name: "index_guilds_on_id_number", unique: true
@@ -64,12 +64,12 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
 
   create_table "messages", force: :cascade do |t|
     t.bigint "id_number", null: false
-    t.string "type_name", null: false
-    t.datetime "timestamp"
-    t.datetime "timestamp_edited"
-    t.datetime "call_end_timestamp"
-    t.boolean "is_pinned"
-    t.string "content", null: false
+    t.string "type_name", default: "_TYPE_NAME_IS_NOTHING_", null: false
+    t.datetime "timestamp", default: "1980-01-01 12:00:00", null: false
+    t.datetime "timestamp_edited", default: "1980-01-01 12:00:00", null: false
+    t.datetime "call_end_timestamp", default: "1980-01-01 12:00:00", null: false
+    t.boolean "is_pinned", default: false, null: false
+    t.string "content", default: "_CONTENT_IS_NOTHING_", null: false
     t.bigint "user_id"
     t.bigint "channel_id"
     t.datetime "created_at", precision: 6, null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
   end
 
   create_table "reactions", force: :cascade do |t|
-    t.integer "count", null: false
+    t.integer "count", default: -1, null: false
     t.jsonb "emoji"
     t.bigint "message_id"
     t.datetime "created_at", precision: 6, null: false
@@ -89,12 +89,12 @@ ActiveRecord::Schema.define(version: 2021_05_22_123730) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.bigint "id_number", null: false
-    t.string "name", null: false
-    t.boolean "is_bot", null: false
-    t.string "discriminator"
-    t.string "nickname"
-    t.string "avatar_url"
+    t.bigint "id_number", default: -1, null: false
+    t.string "name", default: "_NAME_IS_NOTHING_", null: false
+    t.boolean "is_bot", default: false, null: false
+    t.string "discriminator", default: "_DISCRIMINATOR_IS_NOTHING_", null: false
+    t.string "nickname", default: "_NICKNAME_IS_NOTHING_", null: false
+    t.string "avatar_url", default: "_AVATAR_URL_IS_NOTHING_", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["id_number"], name: "index_users_on_id_number", unique: true
