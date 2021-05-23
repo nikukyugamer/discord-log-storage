@@ -5,8 +5,6 @@ class SetNotNullToSomeColumns < ActiveRecord::Migration[6.1]
     change_column_null :guilds, :name, false
 
     change_column_null :channels, :id_number, false
-    change_column_null :channels, :type_name, false
-    change_column_null :channels, :category, false
     change_column_null :channels, :name, false
 
     change_column_null :messages, :id_number, false
