@@ -55,4 +55,29 @@ RSpec.describe Importer do
       end
     end
   end
+
+  describe '#channel_list' do
+    let(:channel_list_response) { File.read(Rails.root.join('spec/responses/channels.txt')) }
+
+    describe 'upsert: true' do
+      example '全てのレコードが INSERT のときに実行が成功すること' do
+        result = Importer.channel_list(channel_list_response, upsert: true)
+
+        expect(result).to eq channel_list_response
+        expect(Channel.count).to eq 20
+        expect(Channel.first.topic).to eq '_TOPIC_IS_NOTHING_'
+      end
+    end
+
+    describe 'upsert: false' do
+      example do
+        result = Importer.channel_list(channel_list_response, upsert: true)
+
+        expect(result).to eq channel_list_response
+        expect(Channel.count).to eq 20
+        expect(Channel.first.topic).to eq '_TOPIC_IS_NOTHING_'
+      end
+    end
+  end
 end
+
