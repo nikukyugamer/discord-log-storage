@@ -65,7 +65,7 @@ RSpec.describe Importer do
 
         expect(result).to eq channel_list_response
         expect(Channel.count).to eq 20
-        expect(Channel.first.topic).to eq '_TOPIC_IS_NOTHING_'
+        expect(Channel.first.topic).to eq nil
       end
     end
 
@@ -75,7 +75,7 @@ RSpec.describe Importer do
 
         expect(result).to eq channel_list_response
         expect(Channel.count).to eq 20
-        expect(Channel.first.topic).to eq '_TOPIC_IS_NOTHING_'
+        expect(Channel.first.topic).to eq nil
       end
     end
   end
