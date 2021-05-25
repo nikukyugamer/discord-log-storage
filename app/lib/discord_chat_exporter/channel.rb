@@ -35,11 +35,11 @@ module DiscordChatExporter
       date_format = options[:date_format] || 'yyyy-MM-dd HH:mm:ss.ffff'
       # ファイル名まで指定することも可能 & ディレクトリが存在しない場合は自動作成
       output_directory = options[:output_directory] || 'log'
-      # begin_datatime と end_datetime は JST
+      # begin_datetime と end_datetime は JST
       begin_datetime = options[:begin_datetime] || (Time.zone.today - 1.week).beginning_of_day.strftime('%Y-%m-%d %H:%M:%S')
       end_datetime = options[:end_datetime]
-      download_media = options[:download_media] || nil
-      reuse_media = options[:reuse_media] || nil
+      download_media = options[:download_media] || false
+      reuse_media = options[:reuse_media] || false
       output_format = options[:output_format] || 'Json'
 
       channel_id_option = "--channel #{channel_id} " if channel_id.present?
@@ -47,8 +47,8 @@ module DiscordChatExporter
       date_format_option = "--dateformat '#{date_format}' " if date_format.present?
       begin_datetime_option = "--after '#{begin_datetime}' " if begin_datetime.present?
       end_datetime_option = "--before '#{end_datetime}' " if end_datetime.present?
-      media_option = '--media ' unless download_media.nil?
-      reuse_media_option = '--reuse_media ' unless reuse_media.nil?
+      media_option = '--media ' if download_media == true
+      reuse_media_option = '--reuse_media ' if reuse_media == true
       output_format_option = "--format '#{output_format}' " unless output_format.nil?
 
       command = "`(which dotnet)` #{@app_dll_path} #{arg} --token '#{@token}' #{channel_id_option}#{date_format_option}#{begin_datetime_option}#{end_datetime_option}#{output_format_option}#{output_directory_option}#{media_option}#{reuse_media_option}".strip

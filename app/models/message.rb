@@ -11,7 +11,7 @@ class Message < ApplicationRecord
 
   delegate :guild, to: :channel
 
-  def single_message_url
+  def url
     "https://discord.com/channels/#{guild.id_number}/#{channel.id_number}/#{id_number}"
   end
 end
