@@ -44,7 +44,7 @@ class Executor
       Importer.guild_list(DiscordChatExporter::Guild.new.list)
 
       Guild.all.each do |guild|
-        Importer.channel_list(DiscordChatExporter::Channel.new(guild.id_number).list)
+        Importer.channel_list(DiscordChatExporter::Channel.new(guild.id_number).list, guild_id_number: guild.id_number)
       end
     end
 
