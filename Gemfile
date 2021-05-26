@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'bugsnag'
+gem 'dotenv-rails'
 gem 'paper_trail'
 gem 'pg'
 gem 'puma'
@@ -9,7 +10,6 @@ gem 'rails'
 
 group :development, :test do
   gem 'byebug'
-  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'rspec-rails'
