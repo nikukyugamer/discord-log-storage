@@ -1,6 +1,7 @@
 {
   "id": "736951523644162090",
   "type": "GuildTextChat",
+  "categoryId": "558131098144473108",
   "category": "Text Channels",
   "name": "雑談部屋",
   "topic": "何でもどうぞ"

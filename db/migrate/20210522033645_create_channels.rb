@@ -4,6 +4,7 @@ class CreateChannels < ActiveRecord::Migration[6.1]
       t.bigint :id_number
       t.string :type_name
       t.string :category
+      t.bigint :category_id_number
       t.string :name
       t.string :topic
 
