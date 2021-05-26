@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
     t.bigint "id_number"
     t.string "type_name"
     t.string "category"
+    t.bigint "category_id_number"
     t.string "name"
     t.string "topic"
     t.bigint "guild_id"
