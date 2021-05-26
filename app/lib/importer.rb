@@ -142,7 +142,7 @@ class Importer
       Bugsnag.notify(e)
     end
 
-    def guild_list(guild_list_response, execute_update: false)
+    def guild_list(guild_list_response)
       ActiveRecord::Base.transaction do
         return if guild_list_response.blank?
 
@@ -154,7 +154,7 @@ class Importer
           guild = Guild.find_by(id_number: guild_id_number)
 
           if guild.present?
-            guild.update!(id_number: guild_id_number, name: guild_name) if execute_update
+            guild.update!(id_number: guild_id_number, name: guild_name)
           else
             Guild.new(id_number: guild_id_number, name: guild_name).save!
           end
@@ -168,7 +168,7 @@ class Importer
       Bugsnag.notify(e)
     end
 
-    def channel_list(channel_list_response, execute_update: false)
+    def channel_list(channel_list_response, guild_id_number: nil)
       ActiveRecord::Base.transaction do
         return if channel_list_response.blank?
 
@@ -178,11 +178,18 @@ class Importer
           channel_id_number = split_channel_data[1]
           channel_name = split_channel_data[3].chomp
           channel = Channel.find_by(id_number: channel_id_number)
+          target_guild = Guild.find_by(id_number: guild_id_number)
+          object_attributes = {
+            id_number: channel_id_number,
+            name: channel_name
+          }
+
+          object_attributes = object_attributes.merge({ guild: target_guild }) if target_guild.present?
 
           if channel.present?
-            channel.update!(id_number: channel_id_number, name: channel_name) if execute_update
+            channel.update!(object_attributes)
           else
-            Channel.new(id_number: channel_id_number, name: channel_name).save!
+            Channel.new(object_attributes).save!
           end
         end
       end
