@@ -21,6 +21,8 @@ module DiscordChatExporter
       stdout, stderr, _status = Open3.capture3(command)
       raise if stderr&.lines.present? && stderr.lines[0].start_with?('ERROR:')
 
+      File.open("tmp/DiscordChatExporter_Channel_list_#{@server_id}_#{Time.zone.now.strftime('%Y%m%d_%H%M%S')}.txt", 'w') { |f| f.puts(stdout) }
+
       stdout
     rescue StandardError => e
       Rails.logger.warn 'エラーです: DiscordChatExporter::Channel#list'
