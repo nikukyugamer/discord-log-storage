@@ -60,15 +60,16 @@ module DiscordChatExporter
       command = "`(which dotnet)` #{@app_dll_path} #{arg} --token '#{@token}' #{channel_id_option}#{date_format_option}#{begin_datetime_option}#{end_datetime_option}#{output_format_option}#{output_directory_option}#{media_option}#{reuse_media_option}".strip
 
       stdout, stderr, _status = Open3.capture3(command)
-      raise if stderr&.lines.present? && stderr.lines[0].start_with?('ERROR:')
+      raise if stderr&.lines.present? && stderr.lines[0].start_with?('ERROR:') && !stderr.lines[0].start_with?('ERROR: DiscordChatExporter.Domain.Exceptions.DiscordChatExporterException: No messages for the specified period.')
 
       stdout
     rescue StandardError => e
       Rails.logger.warn 'エラーです: DiscordChatExporter::Channel#export'
       Rails.logger.warn stderr.lines[0] unless stderr.nil?
       Rails.logger.warn e if e.present?
+      Rails.logger.warn options
 
-      bugsnag_error_message = "エラーです: DiscordChatExporter::Channel#export || stderr: #{stderr.lines[0] unless stderr.nil?} || StandardError: #{e}"
+      bugsnag_error_message = "エラーです: DiscordChatExporter::Channel#export || stderr: #{stderr.lines[0] unless stderr.nil?} || StandardError: #{e} || options: #{options}"
       Bugsnag.notify(bugsnag_error_message)
     end
 
