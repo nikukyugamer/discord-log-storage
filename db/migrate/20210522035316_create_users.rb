@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
     create_table :users do |t|
       t.bigint :id_number
       t.string :name
+      t.string :color
       t.boolean :is_bot
       t.string :discriminator
       t.string :nickname
