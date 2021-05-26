@@ -214,7 +214,8 @@ class Importer
         'callEndedTimestamp' => 'call_ended_timestamp',
         'isPinned' => 'is_pinned',
         'fileName' => 'file_name',
-        'fileSizeBytes' => 'file_size_bytes'
+        'fileSizeBytes' => 'file_size_bytes',
+        'categoryId' => 'category_id_number'
       }.fetch(response_key, response_key)
     end
   end
