@@ -144,6 +144,8 @@ class Importer
 
     def guild_list(guild_list_response, execute_update: false)
       ActiveRecord::Base.transaction do
+        return if guild_list_response.blank?
+
         guild_list_response.each_line do |guild_data|
           split_guild_data = guild_data.match(/(.*?)( \| )(.*)/)
 
@@ -168,6 +170,8 @@ class Importer
 
     def channel_list(channel_list_response, execute_update: false)
       ActiveRecord::Base.transaction do
+        return if channel_list_response.blank?
+
         channel_list_response.each_line do |channel_data|
           split_channel_data = channel_data.match(/(.*?)( \| )(.*)/)
 

@@ -2,6 +2,7 @@ require 'open3'
 
 module DiscordChatExporter
   class Guild
+    # TODO: キーワード引数の方が分かりやすいかも
     def initialize(server_id=nil, token=nil, app_dll_path=nil)
       @server_id = server_id || ENV['SERVER_ID']
       @token = token || ENV['TOKEN']

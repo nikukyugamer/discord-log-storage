@@ -22,6 +22,14 @@ class Executor
       Bugsnag.notify(bugsnag_error_message)
     end
 
+    def save_all_channels_data_in_all_guilds
+      Importer.guild_list(DiscordChatExporter::Guild.new.list)
+
+      Guild.all.each do |guild|
+        Importer.channel_list(DiscordChatExporter::Channel.new(guild.id_number).list)
+      end
+    end
+
     def merged_options(options)
       default_options = {
         output_directory: "tmp/executor_output_temporary_for_saving_to_database.json",
