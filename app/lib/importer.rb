@@ -9,7 +9,7 @@ class Importer
 
         searched_existing_guild_record = Guild.find_by(id_number: guild_params_id_number)
         if searched_existing_guild_record.present?
-          searched_existing_guild_record.update!(guild_params) if execute_update
+          searched_existing_guild_record.update!(guild_params)
         else
           Guild.new(guild_params).save!
         end
@@ -23,7 +23,7 @@ class Importer
         searched_existing_channel_record = Channel.find_by(id_number: channel_params_id_number)
         if searched_existing_channel_record.present?
           searched_existing_channel_record.guild = existing_guild_record
-          searched_existing_channel_record.update!(channel_params) if execute_update
+          searched_existing_channel_record.update!(channel_params)
         else
           channel = Channel.new(channel_params)
           channel.guild = existing_guild_record
@@ -144,6 +144,8 @@ class Importer
 
     def guild_list(guild_list_response, execute_update: false)
       ActiveRecord::Base.transaction do
+        return if guild_list_response.blank?
+
         guild_list_response.each_line do |guild_data|
           split_guild_data = guild_data.match(/(.*?)( \| )(.*)/)
 
@@ -168,6 +170,8 @@ class Importer
 
     def channel_list(channel_list_response, execute_update: false)
       ActiveRecord::Base.transaction do
+        return if channel_list_response.blank?
+
         channel_list_response.each_line do |channel_data|
           split_channel_data = channel_data.match(/(.*?)( \| )(.*)/)
 

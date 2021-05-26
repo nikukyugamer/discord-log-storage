@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_035316) do
     t.jsonb "image"
     t.jsonb "footer"
     t.jsonb "thumbnail"
-    t.string "fields"
+    t.string "fields", array: true
     t.bigint "message_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
