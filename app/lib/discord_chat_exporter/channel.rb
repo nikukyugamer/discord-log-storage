@@ -2,6 +2,7 @@ require 'open3'
 
 module DiscordChatExporter
   class Channel
+    # TODO: キーワード引数の方が分かりやすいかも
     def initialize(server_id=nil, token=nil, app_dll_path=nil)
       @server_id = server_id || ENV['SERVER_ID']
       @token = token || ENV['TOKEN']
@@ -10,6 +11,9 @@ module DiscordChatExporter
 
     def list
       raise StandardError, 'server_id が指定されていません' if @server_id.blank?
+
+      # Direct Messages はチャンネルを持たない
+      return if @server_id == 0
 
       arg = 'channels'
       command = "`(which dotnet)` #{@app_dll_path} #{arg} --guild #{@server_id} --token #{@token}"
