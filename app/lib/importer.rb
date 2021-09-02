@@ -1,5 +1,5 @@
 class Importer
-  class  << self
+  class << self
     def exported_data(exported_json, execute_update: false) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
       ActiveRecord::Base.transaction do # rubocop:disable Metrics/BlockLength
         # Guild
