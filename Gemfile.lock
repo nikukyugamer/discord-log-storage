@@ -123,9 +123,9 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.4-aarch64-linux)
+    nokogiri (1.13.6-aarch64-linux)
       racc (~> 1.4)
-    nokogiri (1.13.4-x86_64-linux)
+    nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     paper_trail (12.2.0)
       activerecord (>= 5.2)
