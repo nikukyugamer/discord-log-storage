@@ -10,6 +10,8 @@ on:
 
 env:
   RAILS_ENV: test
+  PG_USERNAME: postgres_user
+  PG_PASSWORD: postgres_password
 
 jobs:
   rails_app_test:
@@ -21,8 +23,8 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: postgres_user
-          POSTGRES_PASSWORD: postgres_password
+          PG_USERNAME: postgres_user
+          PG_PASSWORD: postgres_password
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
