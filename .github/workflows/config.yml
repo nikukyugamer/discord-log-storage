@@ -1,0 +1,43 @@
+name: Discord Log Storage
+
+on:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+jobs:
+  rails_app_test:
+    name: Rails アプリのテスト
+    runs-on: ubuntu-22.04
+    services:
+      postgres:
+        image: postgres:15.1
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres_user
+          POSTGRES_PASSWORD: postgres_password
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: コードをチェックアウトする
+        uses: actions/checkout@v3
+      - name: Ruby のセットアップを行う
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: データベースをセットアップする
+        run: |
+          bin/rails db:create
+          bin/rails db:migrate
+          bin/rails db:seed
+      - name: RSpec を実行する
+        run: |
+          bundle exec rspec
