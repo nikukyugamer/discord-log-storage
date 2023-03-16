@@ -67,7 +67,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     ast (2.4.2)
-    bootsnap (1.10.3)
+    bootsnap (1.16.0)
       msgpack (~> 1.2)
     bugsnag (6.24.2)
       concurrent-ruby (~> 1.0)
@@ -106,7 +106,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.17.0)
-    msgpack (1.4.4)
+    msgpack (1.6.1)
     net-imap (0.2.3)
       digest
       net-protocol
