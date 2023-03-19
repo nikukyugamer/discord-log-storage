@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-22.04
     services:
       postgres:
-        image: postgres:15.1
+        image: postgres:15.2
         ports:
           - 5432:5432
         env:
