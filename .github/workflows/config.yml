@@ -16,7 +16,7 @@ env:
 jobs:
   rails_app_test:
     name: Rails アプリのテスト
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     services:
       postgres:
         image: postgres:16.4
