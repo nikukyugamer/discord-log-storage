@@ -88,9 +88,9 @@ GEM
     crass (1.0.6)
     date (3.4.1)
     diff-lcs (1.5.1)
-    dotenv (3.1.6)
-    dotenv-rails (3.1.6)
-      dotenv (= 3.1.6)
+    dotenv (3.1.7)
+    dotenv-rails (3.1.7)
+      dotenv (= 3.1.7)
       railties (>= 6.1)
     drb (2.2.1)
     erubi (1.13.0)
@@ -154,7 +154,7 @@ GEM
       method_source (~> 1.0)
     pry-rails (0.3.11)
       pry (>= 0.13.0)
-    psych (5.2.1)
+    psych (5.2.2)
       date
       stringio
     puma (6.5.0)
