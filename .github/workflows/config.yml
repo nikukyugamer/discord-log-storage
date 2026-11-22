@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-26.04
     services:
       postgres:
-        image: postgres:18.7
+        image: postgres:19.0
         ports:
           - 5432:5432
         env:
